@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets"
+import MainLayout from "../layouts/MainLayout.astro"
+
+import cartMe from "../assets/images/cart+me.jpg"
+import cart from "../assets/images/cart.jpg"
+---
+
+<MainLayout description="Ásvány Trafik kezdő oldal" title="Ásvány Trafik">
+  <h1 class="text-2xl text-center font-bold my-8">Üdvözöllek az Ásvány Trafikban!</h1>
+  <article class="flex flex-col md:flex-row">
+    <div class="flex flex-col">
+      <Image class:list={["rounded-lg"]} src={cart} width={800} alt="Trafik" />
+      <p class="text-lg text-center font-bold py-4">Farkas Polgár Bea író,ásványterapeuta vagyok.</p>
+      <p class="py-4">Egyedi különleges és nagy méretű ásvány ékszerekkel foglalkozunk.</p>
+      <p class="py-4">
+        Férjemmel Robival 2017 szeptemberében megalkottuk az Ásvány Trafik mobil
+        faházunkat. Amivel szinte minden hétvégén rendezvényeken, fesztiválokon,
+        börzéken és kiállításokon veszünk részt.
+      </p>
+      <p class="py-4">
+        Alkalom adtán pedig kis és nagy csoportos Motivációs előadásokat és egyéni
+        ásványterápiát is vállalunk.
+      </p>
+      <p class="py-4">
+        <span class="font-bold">Referenciám:</span> A Duna-tv Ridikül című műsorának vendége voltam. Mint
+        ÖNGYÓGYÍTÓ és mint SZÍVVEL-LÉLEKKEL készítő.
+      </p>
+      <p class="py-4">
+        Az Ásvány Trafik facebook oldalunk napra kész. Többször is képekkel,
+        invitáló beszámolókkal jelentkezik. Hiszen az Ásvány Trafik egy életérzés!
+      </p>
+      <blockquote class="text-lg italic font-semibold bg-white/25 border-l-4 border-red-600 rounded-r-lg p-8 mt-4">
+        "A múltam egy darabkája. A jelenem értelme és a jövőm hagyatéka."
+      </blockquote>
+    </div>
+    <Image class:list={["ml-0", "mt-0", "md:ml-4", "rounded-lg"]} src={cartMe} height={850} alt="A trafik és én." />
+  </article>
+</MainLayout>

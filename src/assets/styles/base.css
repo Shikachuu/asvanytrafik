@@ -9,3 +9,7 @@
   font-style: normal;
   font-display: swap;
 }
+
+.qa-section {
+   @apply text-xl text-center m-8;
+}
