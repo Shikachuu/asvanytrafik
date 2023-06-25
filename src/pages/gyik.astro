@@ -1,0 +1,144 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+type QuestionAndAnswer = {
+  question: string;
+  answer: string;
+};
+
+const questionsAndAnswers: QuestionAndAnswer[] = [
+  {
+    question: "Van-e web-shoppunk?",
+    answer:
+      "Nincs,mert nem hiszek benne. Minden ásványunk egyedi, különleges és megismételhetetlen.",
+  },
+  {
+    question: "Rendelni lehet-e?",
+    answer:
+      "  Persze! Én maradi tipus vagyok és még mindig hiszek az adott szó erejében! Telefonon mindig elérhető vagyok! Egyszerű,gyors és részletes. Nekem fontos a személyes kontaktus! Megbeszéljük mit és miért választottál? A méretedre készítjük. Megadom a számlaszámom. Te utalsz és mi postázzuk. Az elégedettséged fontos számunkra! Így minden rendelést vagy találkozást hálakővel jutalmazunk.",
+  },
+  {
+    question: "Hogy tisztítjuk az ásványokat?",
+    answer: "Folyékony csapvízzel.",
+  },
+  {
+    question: "Melyik kezünkön hordjuk a karkötőket?",
+    answer:
+      "Bal oldal: \n az elfogadásra utal, a tudatalattinkra, a múltunkra, a lelki problémáinkra hatnak, a szív jelzése, a nőiességünket erősíti. \nJobb oldal:\n az adásra utal, az értelem jelzése, a tudatos életmódé, a jövőtől való félelmeink, a bennünk lévő férfiasságot erősíti. Így mindenki döntse el,hol hordja és hol kényelmes.",
+  },
+  {
+    question: "Lehet-e többet viselni?",
+    answer:
+      "Persze,nincs mellékhatásuk. Majd a karkötők jelzik ha nem bírják egymást.",
+  },
+  {
+    question: "Mire fűzzük?",
+    answer: "Dupla vagy tripla soros gumis damilra.",
+  },
+  { question: "A szett?", answer: "Nyaklánc, karkötő és fülbevaló együtt." },
+  {
+    question: "A láncok?",
+    answer: "Egyedi csomózási technikával készülnek,így strapa bíróak.",
+  },
+  { question: "A fülik?", answer: "Abszolút antiallergének." },
+  {
+    question: "Horoszkóp?",
+    answer:
+      "Én nem társítom hozzá az ásványokat. Miért? Mert van kb:4700 féle ásványunk. A te csillagjegyedhez társítanak 10-et. Akkor a többi 4690-et sohasem veszed fel?",
+  },
+  { question: "Hogy választunk?", answer: "Az ásvány választ téged." },
+  {
+    question: "Ásványterápia?",
+    answer:
+      'Válassz kínálatunkból "random" 5 karkötőt. Intuitív képességemnek köszönhetően: Megmondom, hogy van a lelked. Ajánlok rá egyet ami elindít a problémád megoldásában.',
+  },
+  {
+    question: "Mi az egyéni ásványterápia?",
+    answer:
+      "Ha elakadsz a jelenedbe, vissza kell menni a múltadba, hogy legyen jövőd! Obszidián tükörrel vezetett terápiás lélekgyógyítás. Bővebben érdeklődni a témáról és időpontot kérni telefonon tudsz.",
+  },
+  { question: "Mi történik ha elszakad?", answer: "Újra fűzzük." },
+  {
+    question: "És Ha újra elszakad?",
+    answer: "Gondolkodj el rajta,hol voltál,kivel és mitől védett az ásványod.",
+  },
+  {
+    question: "Hol találkozhatunk legközelebb?",
+    answer:
+      "A facebook oldalon mindig megtekinthető merre,mikor és hol járunk.",
+  },
+  {
+    question: 'Mi az,hogy "Okos" karkötő?',
+    answer:
+      "Célra törő összeállításuk, frappáns fantázia nevük alapján, motiváló rímeket,verseket írok hozzájuk. (Egy újonnan bemutatott karkötő után, már ti kéritek: neve,verse?)",
+  },
+  {
+    question: "Mi a Motivációs előadás?",
+    answer:
+      "Kis és nagy csoportos (10 főtől) ásványbemutatót tartok. Igény alapján akár tematikussan, vásárlási lehetőséggel együtt. Ország szerte, helyszín biztosítással.",
+  },
+  {
+    question: "Van-e üzletünk?",
+    answer:
+      "Nincs. Lakóhelyünkön Albertirsán a műhelyünk műteremként is funkciónál Bejelentkezni a rendezvényeink miatt szükséges.",
+  },
+  {
+    question: "Elérhetőségünk?",
+    answer:
+      "A facebook Ásvány Trafik nevű oldalunk. Mely napra kész. Több ezer képpel,hírekkel, tapasztalatokkal, invitálókkal.",
+  },
+  {
+    question: "Mikor vagyunk nyitva?",
+    answer:
+      "Mindig... ha előzetesen felhívsz telefonon. Észrevételed, tapasztalatod, véleményed fontos számunkra. Az Ásvány Trafik mindig nyitva vár.",
+  },
+  {
+    question: "Ajándékutalványunk van-e?",
+    answer:
+      "Igen! Frappáns versének köszönhetően szabadon választható összegű. Nincs lejárati ideje. Átruházható. Kínálatunkból bármire felhasználható.",
+  },
+];
+---
+
+<MainLayout
+  description="Ásvány Trafik kérdezz-felelek"
+  title="Kérdezz-felelek - Ásvány Trafik"
+>
+  <div class="flex flex-col items-center">
+    <h2 class="font-bold text-5xl mt-5 tracking-tight font-ast">
+      Kérdezz-felelek
+    </h2>
+    <p class="text-yellow-200 text-xl mt-3">Vagyis gyakran ismételt kérdések</p>
+  </div>
+  <div class="grid divide-y divide-yellow-200 mx-auto mt-8 select-none">
+    {
+      questionsAndAnswers.map((qna) => (
+        <div class="py-5 text-xl">
+          <details class="group">
+            <summary class="flex justify-between items-center font-bold cursor-pointer list-none">
+              <span>{qna.question}</span>
+              <span class="transition group-open:rotate-180">
+                <svg
+                  fill="none"
+                  height="24"
+                  shape-rendering="geometricPrecision"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </span>
+            </summary>
+            <p class="text-black mt-3 group-open:animate-fadeIn">
+              {qna.answer}
+            </p>
+          </details>
+        </div>
+      ))
+    }
+  </div>
+</MainLayout>

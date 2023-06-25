@@ -1,0 +1,17 @@
+---
+import type { MarkdownLayoutProps } from "astro"
+import MainLayout from "./MainLayout.astro"
+
+type Props = MarkdownLayoutProps<{
+  // Define frontmatter props here
+  title: string
+  author: string
+  date: string
+}>
+
+const { frontmatter } = Astro.props
+---
+
+<MainLayout description="Ásványtrafik markdown post" title={frontmatter.title}>
+  <slot />
+</MainLayout>

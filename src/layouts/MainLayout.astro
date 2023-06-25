@@ -1,0 +1,59 @@
+---
+import { AstroSeo } from "@astrolib/seo"
+import { NavBar, NavigationLink } from "../components/NavBar"
+import Footer from "../components/Footer.astro"
+import "../assets/styles/base.css"
+
+type Props = {
+  title: string
+  description: string
+};
+const { title, description } = Astro.props
+
+const links: NavigationLink[]  = [
+  { url: "/", displayName: "Rólam" },
+  { url: "/okoskarkotok", displayName: `"Okos"karkötők` },
+  { url: "/gyik", displayName: `Gyakran ismételt kérdések` },
+]
+---
+
+<html lang="hu">
+  <AstroSeo title={title} description={description} />
+
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <meta charset="UTF-8" />
+
+  <body class="bg-red-400">
+    <NavBar navLinks={links} client:only />
+    <div class="relative isolate px-6 pt-14 lg:px-8">
+      <div
+        class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        aria-hidden="true"
+      >
+        <div
+          class="relative opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem] left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#F5FC89] to-[#f1c232]"
+          style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+        >
+        </div>
+      </div>
+      <div
+        class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+        aria-hidden="true"
+      >
+        <div
+          class="relative opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem] left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#F5FC89] to-[#f1c232]"
+          style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+        >
+        </div>
+      </div>
+    </div>
+    <div class="m-4 max-w-screen-xl mx-auto px-5 min-h-sceen z-10">
+      <slot />
+    </div>
+    <Footer />
+  </body>
+</html>

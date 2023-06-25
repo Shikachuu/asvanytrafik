@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "CurlzMT";
+  src: url("/fonts/CurlzMT.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.qa-section {
+   @apply text-xl text-center m-8;
+}
