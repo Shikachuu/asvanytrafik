@@ -6,7 +6,7 @@
     "dev": "astro dev --port 3000 --host",
     "start": "npm run dev",
     "build": "astro check && tsc --noEmit && astro build",
-    "lint": "eslint --fix -c .eslintrc.cjs ./src/**/* .eslintrc.cjs astro.config.ts",
+    "lint": "eslint --fix --quiet -c .eslintrc.cjs ./src/**/*.{astro,tsx,ts,js,jsx} .eslintrc.cjs astro.config.ts && astro check --silent && tsc",
     "astro": "astro"
   },
   "dependencies": {

@@ -12,8 +12,8 @@ const { title, description } = Astro.props
 
 const links: NavigationLink[]  = [
   { url: "/", displayName: "Rólam" },
-  { url: "/okoskarkotok", displayName: `"Okos"karkötők` },
-  { url: "/gyik", displayName: `Gyakran ismételt kérdések` },
+  { url: "/okoskarkotok", displayName: "\"Okos\"karkötők" },
+  { url: "/gyik", displayName: "Gyakran ismételt kérdések" },
 ]
 ---
 
@@ -52,7 +52,9 @@ const links: NavigationLink[]  = [
       </div>
     </div>
     <div class="m-4 max-w-screen-xl mx-auto px-5 min-h-sceen z-10">
-      <slot />
+      <main>
+        <slot />
+      </main>
     </div>
     <Footer />
   </body>

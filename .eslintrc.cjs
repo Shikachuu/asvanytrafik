@@ -1,4 +1,5 @@
 module.exports = {
+  "ignorePatterns": ["dist", "node_modules", ".github", "types.generated.d.ts", "src/assets/**/*"],
   "env": {
     "browser": true,
     "es2021": true,
