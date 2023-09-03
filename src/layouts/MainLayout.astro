@@ -1,13 +1,15 @@
 ---
 import { AstroSeo } from "@astrolib/seo"
-import { NavBar, NavigationLink } from "../components/NavBar"
+import { NavBar, type NavigationLink } from "../components/NavBar"
 import Footer from "../components/Footer.astro"
 import "../assets/styles/base.css"
+import { ViewTransitions } from "astro:transitions"
 
 type Props = {
   title: string
   description: string
-};
+}
+
 const { title, description } = Astro.props
 
 const links: NavigationLink[]  = [
@@ -19,17 +21,17 @@ const links: NavigationLink[]  = [
 
 <html lang="hu">
   <AstroSeo title={title} description={description} />
-
   <meta charset="utf-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="sitemap" href="/sitemap-index.xml" />
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
   <meta charset="UTF-8" />
+  <ViewTransitions />
 
-  <body class="bg-red-400">
-    <NavBar navLinks={links} client:only />
-    <div class="relative isolate px-6 pt-14 lg:px-8">
+  <body class="bg-red-400" transition:animate="none">
+    <NavBar transition:persist navLinks={links} client:only />
+    <div class="relative isolate px-6 pt-14 lg:px-8 -z-10">
       <div
         class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
         aria-hidden="true"
@@ -56,6 +58,6 @@ const links: NavigationLink[]  = [
         <slot />
       </main>
     </div>
-    <Footer />
+    <Footer transition:persist />
   </body>
 </html>

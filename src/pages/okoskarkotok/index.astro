@@ -1,12 +1,82 @@
 ---
+import { Image } from "astro:assets"
 import MainLayout from "../../layouts/MainLayout.astro"
+import { getCollection } from "astro:content"
+
+const bracelets = await getCollection("bracelets")
 ---
 
 <MainLayout description="Ásványtrafik kezdő oldal" title="Ásványtrafik">
   <div class="min-h-screen">
     <h1 class="text-2xl text-center font-bold">"Okos"karkötők</h1>
-    <h2 class="my-40 text-3xl text-center font-bold font-ast text-yellow-200">
-      Feltöltés alatt...
-    </h2>
+    <article transition:animate="fade" class="mt-4">
+      <p>
+        Az első "okos"karkötő a pandémia alatt született.
+        Szerettem volna a nehéz helyzetben segíteni.
+        Frappáns, egyszerű nevű és színben is tetszetős karkötővel.
+        Amit viselve üzenetet is tartalmaz feléd, a lelki problémáid feldolgozásában és 
+        a mindennapjaidban.
+      </p>
+      <br>
+      <p>
+        A verse:célratörő, saját és egyedi rímekbe foglaltam üzenetüket.
+        Így az első "okos" karkötő a REMÉNY lett.
+      </p>
+      <br>
+      <p>
+        Azóta ha új karkötőt készítek a kommentjeiteknek köszönhetően:
+        "Se név? Se vers?"" üzenetek inspiráltak újra és újra.
+        Azóta  már számos "okos"karkötő és 20 vers is íródott hozzájuk.
+        Verseim egy része a könyvemben is megjelent.
+        Így jogvédettek lettek.
+        Szeretném ha ezt tiszteletben tartanátok.
+      </p>
+      <br>
+      <p>
+        Az ajánlásom, a találkozásainknak,
+        az ásvanyterápiáknak és az érdeklődéseiteknek köszönhetően nagyon népszerűek lettek.
+        Így gondoltam mindet megosztom veletek.
+      </p>
+      <br>
+      <p>
+        Részletezve milyen és mekkora méretű  ásványokból készültek.
+        Ha pedig szivesen inspirálódnál belőlük?
+        A karkötőkhöz ajánlva, hűtőmágnes formájában is kérhetitek ezentúl.
+      </p>
+      <p>
+        Magadnak vagy ajándékba szánnád?
+        Az "okos"karkötőket így használd.
+      </p>
+      <br>
+      <p>
+        Az "okos" karkötők általában hasonlóak.
+        Azt azonban tudnotok kell,hogy nem létezik két egyforma ásvány sem.
+        Ígyekszem mindig a bevált, megszokott méreteknek,
+        árnyalatoknak, hatásuknak megfelelően egyformákat készíteni.
+      </p>
+    </article>
+    <div transition:animate="fade" class="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+      {bracelets.map((bracelet) => (
+        <a href={`/okoskarkotok/${bracelet.slug}`}>
+          <div class="relative">
+            <div class="relative w-full h-72 rounded-lg overflow-hidden">
+              <Image
+                transition:name={`${bracelet.slug}-img`}
+                src={bracelet.data.image}
+                alt={bracelet.slug}
+                class="w-full h-full object-center object-cover"
+              />
+            </div>
+            <div class="absolute top-0 inset-x-0 h-72 rounded-lg p-4 flex items-end justify-end overflow-hidden">
+              <div
+                aria-hidden="true"
+                class="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black opacity-50"
+              />
+              <p class="relative text-xl font-semibold text-yellow-400">{bracelet.data.title}</p>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
   </div>
 </MainLayout>

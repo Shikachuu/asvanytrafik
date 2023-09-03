@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content"
+import { Image } from "astro:assets"
+import MainLayout from "@layouts/MainLayout.astro"
+
+export async function getStaticPaths() {
+  const bracelets = await getCollection("bracelets")
+  return bracelets.map((entry: unknown) => ({
+    params: { slug: entry.slug }, props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const { Content } = await entry.render()
+---
+<MainLayout description="Ásványtrafik markdown post" title={`${entry.data.title} - Ásvány Trafik`}>
+  <h1 class="text-2xl text-center font-bold">{entry.data.title}</h1>
+  <article class="flex flex-col md:flex-row justify-center mt-4">
+    <div class="md:mx-20 md:mt-10 mx-10 my-10 text-lg max-w-1/3">
+      <Content />
+    </div>
+    <Image
+      transition:animate="slide"
+      transition:name={`${entry.slug}-img`}
+      class:list={["md:w-1/3", "w-full", "ml-0", "mt-0", "md:ml-4", "rounded-lg", "max-h-fit"]}
+      src={entry.data.image}
+      alt={entry.slug}
+    />
+  </article>
+</MainLayout>
