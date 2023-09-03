@@ -3,43 +3,50 @@ module.exports = {
   "env": {
     "browser": true,
     "es2021": true,
-    "node": true
+    "node": true,
   },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:astro/recommended"
+    "plugin:astro/recommended",
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
   },
   "plugins": [
     "@typescript-eslint",
-    "react"
+    "react",
   ],
   "rules": {
     "indent": [
       "error",
-      2
+      2,
     ],
     "linebreak-style": [
       "error",
-      "unix"
+      "unix",
     ],
     "quotes": [
       "error",
-      "double"
+      "double",
     ],
     "semi": [
       "error",
-      "never"
+      "never",
     ],
     "object-curly-spacing": [
       "error",
-      "always"
-    ]
+      "always",
+    ],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "never",
+      "exports": "never",
+      "functions": "never",
+    }],
   },
   "overrides": [
     {
@@ -59,5 +66,5 @@ module.exports = {
       files: ["**/*.astro/*.js", "*.astro/*.js"],
       parser: "@typescript-eslint/parser",
     },
-  ]
+  ],
 }
