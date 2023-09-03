@@ -5,7 +5,7 @@ import MainLayout from "@layouts/MainLayout.astro"
 
 export async function getStaticPaths() {
   const bracelets = await getCollection("bracelets")
-  return bracelets.map((entry: unknown) => ({
+  return bracelets.map((entry) => ({
     params: { slug: entry.slug }, props: { entry },
   }))
 }
