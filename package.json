@@ -15,7 +15,7 @@
     "@astrojs/react": "3.6.2",
     "@astrojs/sitemap": "3.2.1",
     "@astrojs/tailwind": "5.1.2",
-    "@astrolib/seo": "^0.6.0",
+    "@astrolib/seo": "v1.0.0-beta.8",
     "astro": "4.16.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -27,6 +27,9 @@
     "@biomejs/biome": "1.9.4",
     "@types/react": "^18.2.12",
     "@types/react-dom": "^18.2.5"
+  },
+  "overrides": {
+    "zod-to-json-schema": "3.23.3"
   },
   "trustedDependencies": ["sharp"]
 }
