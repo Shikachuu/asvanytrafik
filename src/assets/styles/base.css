@@ -11,5 +11,5 @@
 }
 
 .qa-section {
-   @apply text-xl text-center m-8;
+  @apply text-xl text-center m-8;
 }

@@ -2,33 +2,31 @@
   "name": "asvany-trafik",
   "type": "module",
   "license": "MIT",
+  "packageManager": "bun@1.1.33",
   "scripts": {
     "dev": "astro dev --port 3000 --host",
-    "start": "npm run dev",
     "build": "astro check && tsc --noEmit && astro build",
-    "lint": "eslint --fix --quiet -c .eslintrc.cjs ./src/**/*.{astro,tsx,ts,js,jsx} .eslintrc.cjs astro.config.ts && astro check --silent && tsc",
+    "lint": "biome check --write . && astro check --silent && tsc",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.2.0",
-    "@astrojs/mdx": "^1.0.0",
-    "@astrojs/react": "^3.0.0",
-    "@astrojs/sitemap": "^3.0.0",
-    "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/check": "0.9.4",
+    "@astrojs/mdx": "3.1.8",
+    "@astrojs/react": "3.6.2",
+    "@astrojs/sitemap": "3.2.1",
+    "@astrojs/tailwind": "5.1.2",
     "@astrolib/seo": "^0.6.0",
-    "astro": "^3.0.7",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwindcss": "^3.3.3",
-    "typescript": "^5.2.2"
+    "astro": "4.16.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@types/react": "^18.2.12",
-    "@types/react-dom": "^18.2.5",
-    "@typescript-eslint/eslint-plugin": "^5.59.11",
-    "@typescript-eslint/parser": "^5.59.11",
-    "eslint": "^8.42.0",
-    "eslint-plugin-astro": "^0.27.1",
-    "eslint-plugin-react": "^7.32.2"
-  }
+    "@types/react-dom": "^18.2.5"
+  },
+  "trustedDependencies": ["sharp"]
 }

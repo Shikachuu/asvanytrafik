@@ -1,12 +1,12 @@
-import React, { useState } from "react"
+import { type FC, useState } from "react"
 
-export type NavigationLink = { displayName: string, url: string }
+export type NavigationLink = { displayName: string; url: string }
 
 type NavBarProps = {
   navLinks: NavigationLink[]
 }
 
-export const NavBar: React.FC<NavBarProps> = ({ navLinks }) => {
+export const NavBar: FC<NavBarProps> = ({ navLinks }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
@@ -16,7 +16,9 @@ export const NavBar: React.FC<NavBarProps> = ({ navLinks }) => {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5 text-3xl font-ast">Ásvány Trafik</a>
+          <a href="/" className="-m-1.5 p-1.5 text-3xl font-ast">
+            Ásvány Trafik
+          </a>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -36,26 +38,35 @@ export const NavBar: React.FC<NavBarProps> = ({ navLinks }) => {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              ></path>
             </svg>
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          {navLinks.map(link => (
-            <a href={link.url} key={link.url} className="text-sm font-semibold leading-6 text-gray-900">
+          {navLinks.map((link) => (
+            <a
+              href={link.url}
+              key={link.url}
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
               {link.displayName}
-            </a>)
-          )}
+            </a>
+          ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end"></div>
       </nav>
-      <div className={`lg:hidden ${isOpen ? "" : "hidden"} ease-in-out duration-300 delay-300`} role="dialog" aria-modal="true">
+      <div
+        className={`lg:hidden ${isOpen ? "" : "hidden"} ease-in-out duration-300 delay-300`}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className="fixed inset-0 z-50"></div>
-        <div
-          className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-red-400 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
-        >
+        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-red-400 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="/" className="-m-1.5 p-1.5 font-ast text-3xl">Ásvány Trafik</a>
+            <a href="/" className="-m-1.5 p-1.5 font-ast text-3xl">
+              Ásvány Trafik
+            </a>
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -73,14 +84,15 @@ export const NavBar: React.FC<NavBarProps> = ({ navLinks }) => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"></path>
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
               </svg>
             </button>
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                {navLinks.map(link => (
+                {navLinks.map((link) => (
                   <a
                     href={link.url}
                     key={link.url}
